@@ -2,7 +2,7 @@
 
 ## 7.23.22
 
-![Trello](https://trello.com/b/XRqO4AEj/cabana-day) | ![ERD](https://app.diagrams.net/#) | ![Wireframe](https://app.diagrams.net/#)
+[Trello](https://trello.com/b/XRqO4AEj/cabana-day) | [ERD](https://app.diagrams.net/#) | [Wireframe](https://app.diagrams.net/#)
 
 ## **Description**
 
@@ -18,6 +18,6 @@
 ## *Screenshots:*
 
 #### Cabanas:
-![Directly on the Beach](https://www.thespruce.com/what-is-a-cabana-5192358)
+![Directly on the Beach]([https://www.thespruce.com/what-is-a-cabana-5192358](https://serenityatcoconutbay.com/wp-content/uploads/2018/09/Private-Beachfront-Cabanas.jpg))
 
 ![Not on the Beach](https://images.squarespace-cdn.com/content/v1/59e8fbecaeb625f05be15b9f/1514924774750-3AR6AS0BBQS8BV13Y16P/image-asset.png?format=1000w)
