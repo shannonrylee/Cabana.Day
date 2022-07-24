@@ -18,6 +18,9 @@
 ## *Screenshots:*
 
 #### Cabanas:
+  #### Directly on the Beach:
 ![Directly on the Beach](https://www.caribjournal.com/wp-content/uploads/2018/08/night-950x530.jpg)
 
+
+ #### Not on the Beach:
 ![Not on the Beach](https://images.squarespace-cdn.com/content/v1/59e8fbecaeb625f05be15b9f/1514924774750-3AR6AS0BBQS8BV13Y16P/image-asset.png?format=1000w)
