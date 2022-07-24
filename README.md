@@ -2,7 +2,7 @@
 
 ## 7.23.22
 
-![Trello](https://trello.com/b/XRqO4AEj/cabana-day) | ![ERD](https://app.diagrams.net/#) | ![Wireframe](https://app.diagrams.net/#)
+![Trello] (https://trello.com/b/XRqO4AEj/cabana-day) | ![ERD] (https://app.diagrams.net/#) | ![Wireframe] (https://app.diagrams.net/#)
 
 ## **Description**
 
