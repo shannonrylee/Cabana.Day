@@ -9,7 +9,7 @@
 #### Get away for a day by renting a local cabana! This fullstack app is made for people that don't want to fully commit to owning a cabana, or if you're just in the area for the day. It also includes features for the amenities at the cabana such as the pool and food delivery service. You can book a day by filing out a form containing your information and the date of arrival. This helps your experience at the local cabana must smoother and gives you insight to what the place offers before commiting to it. 
 
 ## *Technologies Used:*
-* The MERN Stack -
+The MERN Stack -
 * MongoDB
 * Express
 * React 
