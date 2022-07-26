@@ -2,39 +2,42 @@ const { Booking, Cabana } = require("../models");
 
 const getBooking = async (req, res) => {
   try {
-    const booking = await Booking.find();
-    return res.send(booking);
+    const bookings = await Booking.find();
+    return res.status(200).json({ bookings });
   } catch (error) {
-    throw error;
+    return res.status(500).send(error.message);
   }
 };
 
 const getCabana = async (req, res) => {
   try {
-    const cabana = await Cabana.find();
-    return res.send(cabana);
+    const cabanas = await Cabana.find();
+    return res.status(200).json({ cabanas });
   } catch (error) {
-    throw error;
+    return res.status(500).send(error.message);
   }
 };
 
 const createBooking = async (req, res) => {
   try {
-    const newBooking = await new Booking(req.body);
-    await newBooking.save();
-    return res.send(newBooking);
+    const booking = await new Booking(req.body);
+    await booking.save();
+    return res.status(201).json({
+      booking,
+    });
   } catch (error) {
-    throw error;
+    return res.status(500).json({ error: error.message });
   }
 };
-
 const createCabana = async (req, res) => {
   try {
-    const newCabana = await new Cabana(req.body);
-    await newCabana.save();
-    return res.send(newCabana);
+    const cabana = await new Cabana(req.body);
+    await cabana.save();
+    return res.status(201).json({
+      cabana,
+    });
   } catch (error) {
-    throw error;
+    return res.status(500).json({ error: error.message });
   }
 };
 

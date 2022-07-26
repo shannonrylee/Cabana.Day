@@ -8,7 +8,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 const createCabana = async () => {
   const cabanas = [
     {
-      location: ['onBeach', 'offBeach'],
+      location: ['on Beach', 'off Beach'],
       type: ['2 person', '4 person', '6 person', '8 person'],
       bookedDates: ['7/30/22', '8/02/22', '8/05/22'],
       image: { }
