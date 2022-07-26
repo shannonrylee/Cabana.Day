@@ -22,7 +22,7 @@ const createBooking = async (req, res) => {
   try {
     const newBooking = await new Booking(req.body);
     await newBooking.save();
-    return res.send(bookings);
+    return res.send(newBooking);
   } catch (error) {
     throw error;
   }
@@ -32,7 +32,7 @@ const createCabana = async (req, res) => {
   try {
     const newCabana = await new Cabana(req.body);
     await newCabana.save();
-    return res.send(cabana);
+    return res.send(newCabana);
   } catch (error) {
     throw error;
   }
@@ -40,14 +40,25 @@ const createCabana = async (req, res) => {
 
 const updateBooking = async (req, res) => {
   try {
-    const booking = req.params.Id;
-    const updatedBooking = await Booking.update(req.body, {
-      where: { id: objectId },
-      returning: true,
+    const booking = await Booking.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
     });
-    res.send(updatedBooking);
+    res.status(200).json(booking);
   } catch (error) {
-    throw error;
+    return res.status(500).send(error.message);
+  }
+};
+
+const deleteBooking = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Booking.findByIdAndDelete(id);
+    if (deleted) {
+      return res.status(200).send("Booking deleted");
+    }
+    throw new Error("Booking not found");
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 };
 
@@ -57,4 +68,5 @@ module.exports = {
   createBooking,
   createCabana,
   updateBooking,
+  deleteBooking,
 };

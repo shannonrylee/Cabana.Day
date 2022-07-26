@@ -9,9 +9,9 @@ const createCabana = async () => {
   const cabanas = [
     {
       location: ['onBeach', 'offBeach'],
-      type: [''],
-      bookedDates: [{ type: String }],
-      image: { type: String }
+      type: ['2 person', '4 person', '6 person', '8 person'],
+      bookedDates: ['7/30/22', '8/02/22', '8/05/22'],
+      image: { }
     },
   ];
   await Cabana.insertMany(cabanas);

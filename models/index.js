@@ -1,6 +1,6 @@
 const { model } = require("mongoose");
-const BookingSchema = require("./Bookings");
-const CabanaSchema = require("./Cabanas");
+const BookingSchema = require("./Booking");
+const CabanaSchema = require("./Cabana");
 
 const Booking = model("Booking", BookingSchema);
 const Cabana = model("Cabana", CabanaSchema);
