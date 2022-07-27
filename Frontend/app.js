@@ -1,36 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 const App = () => {
-  const [cabanas, setCabanas] = useState(cabanaArray)
+  const [cabanas, setCabanas] = useState();
+  const initialState = {
+    location: "",
+    type: "",
+    bookedDates: "",
+    price: "",
+  };
+  const [formState, setFormState] = useState(initialState);
 
-  const handleLogin = () => toggleLogin (true)
-  const handleLogout = () => toggleLogin (false)
+  useEffect(() => {
+    const getCabana = async () => {
+      try {
+        let res = await axios.get("http://localhost:3001/api/cabana");
+        console.log(res.data);
+        setCabanas(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCabana();
+  }, []);
 
+  const handleChange = (event) => {
+    setFormState({ ...formState, [event.target.id]: event.target.value });
+  };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(formState);
+    setFormState(initialState);
 
-useEffect(()=>{
-  async  getRides(){
-    const res = await axios.get(`/rideTime.js/rides`)
-    setRides(res.data.results)
-  }
-  getRides()
-},[])
-console.log(rides)
-}
-return (
-  <div className="App">
-    <header>
-      <Nav />
-    </header>
-    <main>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/listing" element={<Listing cabanas={cabanas} />} />
-        {/* <Route path="" */}
-      </Routes>
-    </main>
-  </div>
-);
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="username">Username:</label>
+      <input
+        id="username"
+        type="text"
+        onChange={handleChange}
+        value={formState.username}
+      />
+      <label htmlFor="password">Password:</label>
+      <input
+        id="password"
+        type="password"
+        onChange={handleChange}
+        value={formState.password}
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+};
+export default App;
