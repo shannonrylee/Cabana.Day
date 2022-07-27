@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(logger("dev"));
 
-app.use("/", routes);
+app.use("/api", routes);
 
 db.on(
   "error",

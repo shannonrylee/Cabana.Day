@@ -20,10 +20,10 @@ const getCabana = async (req, res) => {
 
 const createBooking = async (req, res) => {
   try {
-    const booking = await new Booking(req.body);
-    await booking.save();
+    const newBooking = await new Booking(req.body);
+    await newBooking.save();
     return res.status(201).json({
-      booking,
+      newBooking,
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });
@@ -31,10 +31,10 @@ const createBooking = async (req, res) => {
 };
 const createCabana = async (req, res) => {
   try {
-    const cabana = await new Cabana(req.body);
-    await cabana.save();
+    const newCabana = await new Cabana(req.body);
+    await newCabana.save();
     return res.status(201).json({
-      cabana,
+      newCabana,
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });
