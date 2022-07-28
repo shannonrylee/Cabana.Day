@@ -4,55 +4,37 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 const App = () => {
-  const [cabanas, setCabanas] = useState();
-  const initialState = {
-    location: "",
-    type: "",
-    bookedDates: "",
-    price: "",
-  };
-  const [formState, setFormState] = useState(initialState);
+  const [cabanas, setCabanas] = useState([]);
 
   useEffect(() => {
     const getCabana = async () => {
-      try {
-        let res = await axios.get("http://localhost:3001/api/cabana");
-        console.log(res.data);
-        setCabanas(res.data);
-      } catch (error) {
-        console.log(error);
+     await axios.get("http://localhost:3001/api/cabana").then(res) => {
+        console.log(res);
+        setCabanas(res.data.cabanas);
+        console.log(cabanas)
       }
-    };
-    getCabana();
+      getCabana();
+    }
   }, []);
 
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value });
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(formState);
-    setFormState(initialState);
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        id="username"
-        type="text"
-        onChange={handleChange}
-        value={formState.username}
-      />
-      <label htmlFor="password">Password:</label>
-      <input
-        id="password"
-        type="password"
-        onChange={handleChange}
-        value={formState.password}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div>
+        <div className="cabanas">
+          {cabanas.map((cabana) => (
+            <CabanaList
+              key={cabanas.name}
+              name={cabanas.name}
+              cabanaType={cabanas.type}
+              location={cabanas.location}
+              dates={cabanas.bookedDates}
+              onClick={() => navigate(`/cabana/${cabanas._id}`)}
+            />
+          ))}
+          <button>
+            <Link to="/">Back</Link>
+          </button>
+        </div>
+        </div>
   );
 };
 export default App;
